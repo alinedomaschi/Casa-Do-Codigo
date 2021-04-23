@@ -53,7 +53,7 @@ public class NovoAutorRequest {
 		return dataCriacao;
 	}
 	
-	public Autor tomodel() {
+	public Autor toModel() {
 		return new Autor(this.nome, this.email, this.descricao);
 		
 	}
