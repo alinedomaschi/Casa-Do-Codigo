@@ -1,4 +1,4 @@
-package br.com.orangetalents.CasaDoCodigo.conttoller;
+package br.com.orangetalents.CasaDoCodigo.controller;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,22 +10,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.orangetalents.CasaDoCodigo.dto.requests.NovaCategoriaRequest;
-import br.com.orangetalents.CasaDoCodigo.entity.Categoria;
+import br.com.orangetalents.CasaDoCodigo.dto.requests.NovoAutorRequest;
+import br.com.orangetalents.CasaDoCodigo.entity.Autor;
+
 
 @RestController
-@RequestMapping("/categorias")
-public class CategoriaController {
+@RequestMapping("/autores")
+public class AutorController {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@PostMapping
 	@Transactional
-	public String cadastrar (@RequestBody @Valid NovaCategoriaRequest novaCategoriaRequest) {
-		Categoria categoria = novaCategoriaRequest.toModel();
-		entityManager.persist(categoria);
+	public String cadastrar (@RequestBody @Valid NovoAutorRequest novoAutorRequest) {
+		Autor autor = novoAutorRequest.toModel();
+		entityManager.persist(autor);
 		
-		return categoria.toString();
-}
+		return autor.toString();
+	}
+
 }
